@@ -1,0 +1,50 @@
+
+Public Class Form1
+
+    Dim ages(6) As Integer
+    Dim counter As Integer
+
+    Private Sub cmdadd_Click(sender As Object, e As EventArgs) Handles cmdadd.Click
+
+        Dim current As Integer
+        Dim ave As Integer
+        Dim currentlargest As Integer
+        Dim currentsmallest As Integer
+
+        current = txtAge.Text
+
+        ages(6) = 10
+        ages(counter) = current
+        counter = counter + 1
+        ave = 0
+
+        For i = 0 To counter - 1
+            ave = ave + ages(i)
+        Next
+
+        currentlargest = ages(0)
+
+        For i = 0 To counter - 1
+            If ages(i) > currentlargest Then
+                currentlargest = ages(i)
+            End If
+        Next
+
+        currentsmallest = ages(0)
+
+        For i = 0 To counter - 1
+            If ages(i) < currentsmallest Then
+                currentsmallest = ages(i)
+            End If
+        Next
+
+        ave = ave / ages.Length
+
+
+        lblaverage.Text = " The average age is " & ave
+        lblNum.Text = " There are " & counter & " ages stored"
+        lbllargest.Text = " Largest: " & currentlargest
+        lblsmallest.Text = " smallest: " & currentsmallest
+
+    End Sub
+End Class
