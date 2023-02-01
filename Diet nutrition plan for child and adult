@@ -1,0 +1,114 @@
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdconfirm.Click
+
+        Dim adultplan As Integer
+        Dim adult As Integer
+        Dim costadult As Integer
+        Dim childplan As Integer
+        Dim child As Integer
+        Dim costchild As Integer
+        Dim muscle As Integer
+        Dim endurance As Integer
+        Dim balance As Integer
+        Dim total As Integer
+        Dim fitness As Integer
+        Dim credit As String
+        Dim housenum As Integer
+        Dim street As String
+        Dim town As String
+        Dim postcode As String
+
+        If cboplanadult.SelectedIndex = 0 Then
+            adultplan = 50
+        ElseIf cboplanadult.SelectedIndex = 1 Then
+            adultplan = 80
+        ElseIf cboplanadult.SelectedIndex = 2 Then
+            adultplan = 70
+        ElseIf cboplanadult.SelectedIndex = 3 Then
+            adultplan = 55
+        ElseIf cboplanadult.SelectedIndex = 4 Then
+            adultplan = 85
+        ElseIf cboplanadult.SelectedIndex = 5 Then
+            adultplan = 75
+        ElseIf cboplanadult.SelectedIndex = 6 Then
+            adultplan = 50
+        ElseIf cboplanadult.SelectedIndex = 7 Then
+            adultplan = 80
+        ElseIf cboplanadult.SelectedIndex = 8 Then
+            adultplan = 70
+        End If
+
+        If cbonumadult.SelectedIndex = 0 Then
+            adult = 1
+        ElseIf cbonumadult.SelectedIndex = 1 Then
+            adult = 2
+        ElseIf cbonumadult.SelectedIndex = 2 Then
+            adult = 3
+        ElseIf cbonumadult.SelectedIndex = 3 Then
+            adult = 4
+        End If
+
+        costadult = adultplan * adult
+
+        If cboplanchild.SelectedIndex = 0 Then
+            childplan = 35
+        ElseIf cboplanchild.SelectedIndex = 1 Then
+            childplan = 40
+        ElseIf cboplanchild.SelectedIndex = 2 Then
+            childplan = 35
+        End If
+
+        If cbonumchild.SelectedIndex = 0 Then
+            child = 0
+        ElseIf cbonumchild.SelectedIndex = 1 Then
+            child = 1
+        ElseIf cbonumchild.SelectedIndex = 2 Then
+            child = 2
+        ElseIf cbonumchild.SelectedIndex = 3 Then
+            child = 3
+        ElseIf cbonumchild.SelectedIndex = 4 Then
+            child = 4
+        End If
+
+        costchild = childplan * child
+
+        If chkmuscle.Checked = True Then
+            muscle = 50
+        End If
+
+        If chkendurance.Checked = True Then
+            endurance = 40
+        End If
+
+        If chkbalance.Checked = True Then
+            balance = 45
+        End If
+
+        housenum = txthousenum.Text
+        street = txtstreet.Text
+        town = txttown.Text
+        postcode = txtpostcode.Text
+
+        fitness = muscle + endurance + balance
+
+        total = costadult + costchild + fitness
+
+
+        credit = txtcredit.Text
+
+
+        If credit.Length = 16 Then
+            ' magic happen 
+            lbloutput.Text = " cost for adult is " & costadult & "$" & " for " & adult & " adult " & vbCrLf &
+                             " cost for children is " & costchild & "$" & " for " & child & " child " & vbCrLf &
+                             " Total price for nutrition plan is " & total & "$" & vbCrLf &
+                             " Additional fitness is " & fitness & "$"
+        Else
+            lbloutput.Text = "Retry ur credit card number "
+        End If
+
+        lbloutput2.Text = " Your house number is " & housenum & vbCrLf &
+                           " Your street number is " & street & vbCrLf &
+                           " Your town is " & town & vbCrLf &
+                           " Your postcode is " & postcode & vbCrLf
+
+    End Sub
