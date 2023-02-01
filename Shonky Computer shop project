@@ -1,0 +1,115 @@
+Public Class Form1
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
+        Dim CPU As Integer
+        Dim total As Integer
+        Dim memory As Integer
+        Dim hd As Integer
+        Dim sw As Integer
+        Dim graphic As Integer
+        Dim moni As Integer
+        Dim h_dd As Integer
+        Dim d_vd As Integer
+        Dim prin_ter As Integer
+        Dim scan_ner As Integer
+        Dim card_rea_der As Integer
+        Dim peripherals As Integer
+
+
+        If combocpu.SelectedIndex = 0 Then
+            CPU = 200
+        ElseIf combocpu.SelectedIndex = 1 Then
+            CPU = 300
+        ElseIf combocpu.SelectedIndex = 2 Then
+            CPU = 400
+        ElseIf combocpu.SelectedIndex = 3 Then
+            CPU = 500
+        ElseIf combocpu.SelectedIndex = 4 Then
+            CPU = 600
+        ElseIf combocpu.SelectedIndex = 5 Then
+            CPU = 650
+        ElseIf combocpu.SelectedIndex = 6 Then
+            CPU = 700
+        End If
+
+        If combomemory.SelectedIndex = 0 Then
+            memory = 70
+        ElseIf combomemory.SelectedIndex = 1 Then
+            memory = 90
+        ElseIf combomemory.SelectedIndex = 2 Then
+            memory = 130
+        ElseIf combomemory.SelectedIndex = 3 Then
+            memory = 160
+        End If
+
+        If combohd.SelectedIndex = 0 Then
+            hd = 50
+        ElseIf combohd.SelectedIndex = 1 Then
+            hd = 100
+        ElseIf combohd.SelectedIndex = 2 Then
+            hd = 150
+        ElseIf combohd.SelectedIndex = 3 Then
+            hd = 200
+        ElseIf combohd.SelectedIndex = 4 Then
+            hd = 250
+
+        End If
+
+        If combosw.SelectedIndex = 0 Then
+            sw = 0
+        ElseIf combosw.SelectedIndex = 1 Then
+            sw = 10
+        ElseIf combosw.SelectedIndex = 2 Then
+            sw = 20
+        ElseIf combosw.SelectedIndex = 3 Then
+            sw = 30
+        ElseIf combosw.SelectedIndex = 4 Then
+            sw = 40
+        End If
+
+        If combographic.SelectedIndex = 0 Then
+            graphic = 250
+        ElseIf combographic.SelectedIndex = 1 Then
+            graphic = 350
+        ElseIf combographic.SelectedIndex = 2 Then
+            graphic = 500
+
+        End If
+
+        If combomonitor.SelectedIndex = 0 Then
+            moni = 100
+        ElseIf combomonitor.SelectedIndex = 1 Then
+            moni = 200
+        ElseIf combomonitor.SelectedIndex = 2 Then
+            moni = 300
+        ElseIf combomonitor.SelectedIndex = 3 Then
+            moni = 400
+        ElseIf combomonitor.SelectedIndex = 4 Then
+            moni = 500
+        End If
+
+        If hdd.Checked = True Then
+            h_dd = 100
+        End If
+        If dvd.Checked = True Then
+            d_vd = 100
+        End If
+        If printer.Checked = True Then
+            prin_ter = 100
+        End If
+        If scanner.Checked = True Then
+            scan_ner = 100
+        End If
+        If card_reader.Checked = True Then
+            card_rea_der = 100
+        End If
+
+        peripherals = d_vd + prin_ter + h_dd + scan_ner + card_rea_der
+
+        total = CPU + memory + hd + sw + graphic + moni + peripherals
+
+        lbloutput.Text = total
+
+    End Sub
+End Class
