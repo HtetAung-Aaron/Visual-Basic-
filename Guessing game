@@ -1,0 +1,23 @@
+Public Class Form1
+    Private Sub cmdguess_Click(sender As Object, e As EventArgs) Handles cmdguess.Click
+        Dim num As Integer
+        num = txtinput.Text
+
+        Select Case num
+            Case 1
+                lbloutput.Text = " a sheet of paper "
+            Case 2
+                lbloutput.Text = " a car "
+            Case 3
+                lbloutput.Text = " a pair of slippers "
+            Case 4
+                lbloutput.Text = " a litre bottle of water "
+            Case 5
+                lbloutput.Text = " A 52'  LCD TV "
+            Case 6
+                lbloutput.Text = " an umbrella "
+            Case Else
+                lbloutput.Text = " Please choose between 1 to 6 "
+        End Select
+    End Sub
+End Class
