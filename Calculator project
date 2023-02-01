@@ -1,0 +1,47 @@
+Public Class Form1
+    Dim numOne As Double
+    Dim numTwo As Double
+    Dim answer As Double
+
+    Private Sub txtone_TextChanged(sender As Object, e As EventArgs) Handles txtone.TextChanged
+
+    End Sub
+
+    Private Sub cmdadd_Click(sender As Object, e As EventArgs) Handles cmdadd.Click
+
+        numOne = txtone.Text
+        numTwo = txttwo.Text
+        answer = numOne + numTwo
+        lbloutput.Text = answer
+    End Sub
+
+    Private Sub cmdmulti_Click(sender As Object, e As EventArgs) Handles cmdmulti.Click
+
+        numOne = txtone.Text
+        numTwo = txttwo.Text
+        answer = numOne * numTwo
+        lbloutput.Text = answer
+
+    End Sub
+
+    Private Sub cmdsub_Click(sender As Object, e As EventArgs) Handles cmdsub.Click
+        numOne = txtone.Text
+        numTwo = txttwo.Text
+        answer = numOne - numTwo
+        lbloutput.Text = answer
+    End Sub
+
+    Private Sub cmddivide_Click(sender As Object, e As EventArgs) Handles cmddivide.Click
+        numOne = txtone.Text
+        numTwo = txttwo.Text
+        answer = numOne / numTwo
+        lbloutput.Text = answer
+    End Sub
+
+    Private Sub cmdmod_Click(sender As Object, e As EventArgs) Handles cmdmod.Click
+        numOne = txtone.Text
+        numTwo = txttwo.Text
+        answer = numOne Mod numTwo
+        lbloutput.Text = answer
+    End Sub
+End Class
