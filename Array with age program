@@ -88,6 +88,21 @@ Public Class Form1
             lblsort.text = lblsort.Text & " " & numdisplay(i)
         Next
     End Sub
+    
+        Private Sub cmdsearch_Click(sender As Object, e As EventArgs) Handles cmdsearch.Click
+        Dim searchname As String
 
+        searchname = txtsearch.Text
+
+        For i = 0 To counter - 1
+            If names(i) = searchname Then
+                lblsearch.Text = "Found!"
+            Else
+                lblsearch.Text = "Not found!"
+            End If
+        Next
+
+
+    End Sub
 
 End Class
