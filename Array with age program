@@ -1,0 +1,93 @@
+Public Class Form1
+
+    Dim ages(5) As Integer
+    Dim counter As Integer
+    Dim names(5) As String
+    Private Sub cmdage_Click(sender As Object, e As EventArgs) Handles cmdage.Click
+        Dim current As Integer
+        Dim ave As Integer
+        Dim currentlargest As Integer
+        Dim currentsmallest As Integer
+        Dim currentlargestname As String
+        Dim currentsmallestname As String
+        Dim total As Integer
+        Dim name As String
+
+        currentlargestname = ""
+        currentsmallestname = ""
+
+        current = txtinput.Text
+        name = txtname.Text
+
+        ages(5) = 10
+        ages(counter) = current
+        names(counter) = name
+        counter = counter + 1
+        ave = 0
+
+        For i = 0 To counter - 1
+            ave = ave + ages(i)
+        Next
+
+        currentlargest = ages(0)
+        currentlargestname = names(0)
+        For i = 0 To counter - 1
+            If ages(i) > currentlargest Then
+                currentlargest = ages(i)
+                currentlargestname = names(i)
+            End If
+        Next
+
+        currentsmallest = ages(0)
+        currentsmallestname = names(0)
+        For i = 0 To counter - 1
+            If ages(i) < currentsmallest Then
+                currentsmallest = ages(i)
+                currentsmallestname = names(i)
+            End If
+        Next
+
+        ave = ave / ages.Length
+        lblaverage.Text = "The average age is " & ave
+        lblnum.Text = "There are " & counter & " ages stored"
+        lbllargest.Text = " Largest: " & currentlargest
+        lblsmall.Text = "Smallest: " & currentsmallest
+        lbllargestname.Text = "Largest name is: " & currentlargestname
+        lblsmallestname.Text = "Smallest name is: " & currentsmallestname
+
+
+
+        For i = 0 To counter - 1
+            total = total + ages(i)
+        Next
+
+        lbltotal.Text = "Total is :" & total
+
+        Call sortinteger()
+
+        Dim midpoint As Integer
+        Dim median As Double
+
+        midpoint = counter / 2
+        If counter >= 5 Then
+            If counter Mod 2 = 0 Then
+                median = (ages(midpoint) + ages(midpoint - 1)) / 2
+            Else
+                median = ages(midpoint)
+            End If
+            lblmedian.Text = "Median is: " & median
+        End If
+    End Sub
+
+    Private Sub sortinteger()
+        Dim numdisplay() As Integer
+        numdisplay = {1, 2, 3, 4}
+        Array.Sort(numdisplay)
+        lblsort.text = " "
+        For i = 0 To numdisplay.Length - 1
+            lblsort.text = lblsort.Text & " " & numdisplay(i)
+        Next
+    End Sub
+
+
+End Class
