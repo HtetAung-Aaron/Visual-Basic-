@@ -1,0 +1,222 @@
+Private Sub Button1_Click(sender As Object, e As EventArgs) Handles cmdsum.Click
+        Dim num1 As Integer
+        Dim num2 As Integer
+        Dim num3 As Integer
+        Dim sum As Integer
+        
+        ' function to check error 
+        checkTextbox(txtnum1)
+        checkTextbox(txtnum2)
+        checkTextbox(txtnum3)
+
+        num1 = txtnum1.Text
+        num2 = txtnum2.Text
+        num3 = txtnum3.Text
+        sum = num1 + num2 + num3
+        sum = txtnum1.Text + txtnum2.Text + txtnum3.Text
+        lbloutput1.Text = sum
+
+        doCalculations(sum, "The sum of these number")
+        doCalculations(txtnum1.Text, "The first number")
+        doCalculations(txtnum2.Text, "The first number")
+        doCalculations(txtnum3.Text, "The first number")
+        
+        ' check number is prime or not
+        If checkPrime(sum) = True Then
+            lbloutput1.Text = "This is prime number"
+        Else
+            lbloutput1.Text = "This is not a prime number"
+        End If
+
+        ' check number is power of two or not
+        If powerofTwo(sum) = True Then
+            lbloutput2.Text = "This is power of two"
+        Else
+            lbloutput2.Text = "This is not power of two"
+        End If
+
+    End Sub
+
+    Private Function checkPrime(number As Integer) As Boolean
+        If number <= 1 Then
+            Return False
+        End If
+        For i = 2 To number - 1
+            If number Mod i = 0 Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
+    Private Function powerofTwo(number As Integer) As Boolean
+        If (number > 0) And ((number And (number - 1)) = 0) Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Sub checkTextbox(box As TextBox)
+        If box.Text = "" Then
+            box.Text = 0
+        End If
+    End Sub
+
+
+    Private Function addTextString(str As String, newstr As String) As String
+        str = str & newstr
+        Return str
+    End Function
+
+    ' Private Sub doCalculations(num As Integer, startText As String)
+    ' Dim str As String
+    ' Dim numstate As Boolean
+
+    '  str = lbloutput.Text + startText
+    ' numstate = checkIsEven(num)
+
+    '  If numstate = True Then
+    '  str = addTextString(str, " is even ")
+    '  If num Mod 4 = 0 Then
+    '           str = addTextString(str, " and cleanly divisible by four ")
+    '      Else
+    '          str = addTextString(str, " and not cleanly divisible by four ")
+    '  End If
+    '  Else
+    '  str = addTextString(str, " is odd ")
+    '  If num Mod 3 = 0 Then
+    '      str = addTextString(str, " and cleanly divisible by three ")
+    '  Else
+    '      str = addTextString(str, " and not cleanly divisible by three ")
+    '         End If
+    '    End If
+    '  str = addTextString(str, vbCrLf)
+    '  lbloutput.Text = str
+
+    '  End Sub
+    Private Function checkIsEven(num As Integer) As Boolean
+        If num Mod 2 = 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+
+    ' Private Function checkIsCleanDivisible(num As Integer, div As Integer) As Boolean
+    ' If num Mod div = 0 Then
+    '    Return True
+    ' Else
+    '    Return False
+    ' End If
+    ' End Function
+
+
+    Private Sub doCalculations(num As Integer, startText As String)
+        Dim str As String
+        Dim numState As Boolean
+
+        str = lbloutput1.Text + startText
+        numState = checkIsCleanyDivision(num, 2)
+
+        If numState = True Then
+            str = addTextString(str, " is even")
+            If checkIsCleanyDivision(num, 4) Then
+                str = addTextString(str, " and cleanly divisible by four ")
+            Else
+                str = addTextString(str, " and not cleanly divisible by four ")
+            End If
+
+        Else
+            str = addTextString(str, " is odd ")
+            If checkIsCleanyDivision(num, 3) Then
+                str = addTextString(str, " and cleanly divisible by three ")
+            Else
+                str = addTextString(str, " and not cleanly divisible by four ")
+            End If
+        End If
+
+        str = addTextString(str, vbCrLf)
+        lbloutput1.Text = str
+    End Sub
+
+    Private Function checkIsCleanyDivision(num As Integer, div As Integer) As Boolean
+        If num < 0 Then
+            Return False
+        End If
+        If num Mod div = 0 Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Friend WithEvents lbloutput3 As Label
+    Friend WithEvents cmdsubstract As Button
+    Friend WithEvents cmddivision As Button
+    Friend WithEvents cmdmultiply As Button
+
+    Private Sub cmdsubstract_Click(sender As Object, e As EventArgs) Handles cmdsubstract.Click
+        Dim num1 As Integer
+        Dim num2 As Integer
+        Dim num3 As Integer
+        Dim substract As Integer
+
+        num1 = txtnum1.Text
+        num2 = txtnum2.Text
+        num3 = txtnum3.Text
+
+        substract = num1 - num2 - num3
+
+        lbloutput1.Text = substract
+    End Sub
+
+    Private Sub cmddivision_Click(sender As Object, e As EventArgs) Handles cmddivision.Click
+        Dim num1 As Integer
+        Dim num2 As Integer
+        Dim num3 As Integer
+        Dim division As Integer
+
+        num1 = txtnum1.Text
+        num2 = txtnum2.Text
+        num3 = txtnum3.Text
+
+        division = num1 / num2 / num3
+
+        lbloutput2.Text = division
+    End Sub
+
+    Private Sub cmdmultiply_Click(sender As Object, e As EventArgs) Handles cmdmultiply.Click
+        Dim num1 As Integer
+        Dim num2 As Integer
+        Dim num3 As Integer
+        Dim multiply As Integer
+
+        num1 = txtnum1.Text
+        num2 = txtnum2.Text
+        num3 = txtnum3.Text
+
+        multiply = num1 * num2 * num3
+
+        lbloutput2.Text = multiply
+    End Sub
+
+    Friend WithEvents cmdpower As Button
+
+    Private Sub cmdpower_Click(sender As Object, e As EventArgs) Handles cmdpower.Click
+        Dim num1 As Integer
+        Dim num2 As Integer
+        Dim num3 As Integer
+        Dim power As Integer
+
+        num1 = txtnum1.Text
+        num2 = txtnum2.Text
+        num3 = txtnum3.Text
+
+        power = num1 ^ num2 + num3
+
+        lbloutput3.Text = power
+    End Sub
+
+
+End Class
